@@ -67,10 +67,11 @@ def cancelar_pedido(request, pedido_id):
         return redirect('/exames/gerenciar_pedidos/')
 
     pedido.agendado = False
+
     pedido.save()
+    
     messages.add_message(request, constants.SUCCESS, 'Pedido excluido com sucesso')
     return redirect('/exames/gerenciar_pedidos/')
-
 
 
 @login_required

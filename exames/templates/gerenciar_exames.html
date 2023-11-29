@@ -18,6 +18,10 @@
 			<div class="alert {{ message.tags }}">{{ message }}</div>
 			{% endfor %}
 		{% endif %}
+		<div style='text-align:center'>
+			<h3 class="font-destaque">GERENCIAMENTO DE EXAMES</h3>
+		</div>
+		<br>	
 		<div class="card card-view">
 			
 			<div class="sub-card">
@@ -56,8 +60,9 @@
 					{% if exame.status == 'F' %}
 						<a href="{% url "permitir_abrir_exame" exame.id %}" class="btn btn-light">Abrir</a>
 					{% else %}
-					<a href="#" class="btn btn-light disabled">Abrir</a>
+						<a href="#" class="btn btn-light disabled">Abrir</a>
 					{% endif %}
+					</div>
 					</div>
 					<br>
 					{% endif %}

@@ -23,7 +23,8 @@ class TiposExames(models.Model):
 class SolicitacaoExame(models.Model):
 	choice_status = (
 		('E', 'Em análise'),
-		('F', 'Finalizado')
+		('F', 'Finalizado'),
+		('C', 'Cancelado')
 	)
 	usuario = models.ForeignKey(User, on_delete=models.DO_NOTHING)
 	exame = models.ForeignKey(TiposExames, on_delete=models.DO_NOTHING)
@@ -44,6 +45,8 @@ class SolicitacaoExame(models.Model):
 		elif self.status == 'F':
 			classes_css = 'bg-success'
 			texto = "Finalizado"
+		
+
 	
 		return mark_safe(f"<span class='badge bg-primary {classes_css}'>{texto}</span>")
 	

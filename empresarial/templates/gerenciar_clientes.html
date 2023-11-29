@@ -19,18 +19,19 @@
         {% endif %}
         <div class="row">
             <div class="col-md">
-                <form action="{% url "gerenciar_clientes" %}" method="GET">
-                <label for="">Nome</label>
-                <input type="text" class="form-control" name="nome" value="{{nome_completo}}">
-            </div>
-            <div class="col-md">
-                <label for="">E-mail</label>
-                <input type="text" class="form-control" name="email" value="{{email}}">
-            </div>
-            <div class="col-md">
+            <form action="{% url "gerenciar_clientes" %}" method="GET">
+                    <label for="">Nome</label>
+                    <input type="text" class="form-control" name="nome" value="{{nome_completo}}">
+                </div>
+                <div class="col-md">
+                    <label for="">E-mail</label>
+                    <input type="text" class="form-control" name="email"  value="{{email}}">
+                </div>
+                <div class="col-md">
                 <br>
-                <input type="submit" class="btn-default">
-                </form>
+                    <input type="submit" class="btn-default" style="min-width:200px;" value="Pesquisar">
+                  
+            </form>
 
             </div>
         </div>
@@ -40,7 +41,7 @@
                 <tr>
                   <th>Nome</th>
                   <th>E-mail</th>
-                  <th>CPF</th>
+                 
                 </tr>
 
                 {% for cliente in clientes %}

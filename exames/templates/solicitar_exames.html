@@ -13,9 +13,9 @@
     <br>
     <div class="container">
         <div class="row">
-
             <div class="col-md">
-                <h3 class="font-destaque">Solicitar exames</h3>
+                <h3 class="font-destaque">SOLICITAR EXAMES</h3>
+                
                 
                 <form action="{% url "solicitar_exames" %}" method="POST">{% csrf_token %}
                     <label for="">Selecione os exames para realizar</label>
@@ -77,6 +77,16 @@
 
             </div>
         </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="text-align: center">
+        <a href="{% url 'gerenciar_pedidos' %}" class="btn-custom">Ir para a página Gerenciar Pedidos</a> 
+        <br>  
+        <br> 
+        <a href="{% url 'gerenciar_exames' %}" class="btn-custom">Ir para a página Gerenciar Exames</a>
     </div>
 
 {% endblock 'conteudo' %}
