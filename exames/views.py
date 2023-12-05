@@ -113,7 +113,7 @@ def solicitar_senha_exame(request, exame_id):
 @login_required
 def gerar_acesso_medico(request):
     if request.method == "GET":
-        acessos_medicos = AcessoMedico.objects.filter(usuario =request.user)
+        acessos_medicos = AcessoMedico.objects.filter(usuario=request.user)
         return render(request, 'gerar_acesso_medico.html', {'acessos_medicos': acessos_medicos})
     elif request.method == "POST":
         identificacao = request.POST.get('identificacao')
@@ -138,12 +138,13 @@ def gerar_acesso_medico(request):
 
 
 def acesso_medico(request, token):
-    acesso_medico = AcessoMedico.objects.get(token = token)
+    acesso_medico = AcessoMedico.objects.get(token=token)
 
     if acesso_medico.status == 'Expirado':
         messages.add_message(request, constants.WARNING, 'Esse link já se expirou!')
-        return redirect('/usuarios/login')
+        return redirect('/vitalab/')
 
-    pedidos = PedidosExames.objects.filter(data__gte = acesso_medico.data_exames_iniciais).filter(data__lte = acesso_medico.data_exames_finais).filter(usuario=acesso_medico.usuario)
+   # pedidos = PedidosExames.objects.filter(data__gte=acesso_medico.data_exames_iniciais).filter(data__lte=acesso_medico.data_exames_finais).filter(usuario=acesso_medico.usuario)
+    pedidos = PedidosExames.objects.filter(usuario=acesso_medico.usuario).filter(data__gte=acesso_medico.data_exames_iniciais).filter(data__lte=acesso_medico.data_exames_finais)
 
     return render(request, 'acesso_medico.html', {'pedidos': pedidos})    

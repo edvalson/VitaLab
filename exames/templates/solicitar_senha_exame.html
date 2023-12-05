@@ -20,11 +20,14 @@
         {% endif %}
         <h3>{{exame.exame.nome}}</h3>
         <br>
+        <div style="text-align:right"> 
+            <a href="javascript:history.back()" class="btn-custom"> Retorna para página Gerenciamento de Exames</a>
+        </div>
         <form action="{% url "solicitar_senha_exame" exame.id %}" method="POST">{% csrf_token %}
             
             <label>Senha de acesso</label>
             <br>
-            <input type="text" name="senha" class="form-control" style="width: 40%">
+            <input type="password" name="senha" class="form-control" style="width: 40%">
             <br>
 
             <input type="submit" class="btn-default" value="Enviar">

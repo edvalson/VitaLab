@@ -41,3 +41,10 @@ body{
     border-color: #838FFF;
     padding: 10px;
 }
+
+.lnr-eye {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}

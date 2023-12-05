@@ -1,4 +1,4 @@
-{% extends "bases/base.html" %}
+{% extends "bases/base_login.html" %}
 {% load static %}
 
 {% block 'head' %}
@@ -24,7 +24,7 @@
 
         <div>
             <form action="{% url 'login' %}" method="POST">{% csrf_token %}
-                <label>Username</label>
+                <label>Usuário</label>
                 <br>
                 <input type="text" class="input-default" name="username">
                 <br>
@@ -39,7 +39,7 @@
         </div>
         <br>
         <br>
-        Se não tiver o username e senha
+        Se não tiver o usuário e senha
         <br>
         <br>
         <a href="{% url "cadastro" %}"  class="btn-custom"> Faça o seu cadastro aqui</a>

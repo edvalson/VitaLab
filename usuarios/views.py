@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.messages import constants
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 def cadastro(request):
     if request.method == "GET":
@@ -60,3 +61,9 @@ def logar(request):
         else:
             messages.add_message(request, constants.ERROR, 'Usuario ou senha inválidos')
             return redirect('/usuarios/login')
+
+
+@login_required
+def deslogar(request):
+    logout(request)
+    return redirect('/vitalab/')
