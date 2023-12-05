@@ -66,4 +66,4 @@ def logar(request):
 @login_required
 def deslogar(request):
     logout(request)
-    return redirect('/vitalab/')
+    return redirect('/usuarios/login')
