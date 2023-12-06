@@ -5,6 +5,7 @@ from datetime import datetime
 from django.contrib.messages import constants
 from django.contrib import messages
 
+
 @login_required
 def solicitar_exames(request):
     tipos_exames = TiposExames.objects.all()
@@ -142,9 +143,10 @@ def acesso_medico(request, token):
 
     if acesso_medico.status == 'Expirado':
         messages.add_message(request, constants.WARNING, 'Esse link já se expirou!')
-        return redirect('/vitalab/')
+        return redirect('/usuarios/login')
 
    # pedidos = PedidosExames.objects.filter(data__gte=acesso_medico.data_exames_iniciais).filter(data__lte=acesso_medico.data_exames_finais).filter(usuario=acesso_medico.usuario)
     pedidos = PedidosExames.objects.filter(usuario=acesso_medico.usuario).filter(data__gte=acesso_medico.data_exames_iniciais).filter(data__lte=acesso_medico.data_exames_finais)
 
     return render(request, 'acesso_medico.html', {'pedidos': pedidos})    
+    

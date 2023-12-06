@@ -51,10 +51,10 @@
             </div>
             <div class="col-md">
                 
-                <div class="card">
+                <div class="card-md">
                     <table style="text-align: center">
                         <tr>
-                          <th>Id</th>
+                          <th>Nome</th>
                           <th>Status</th>
                           <th>Link</th>
                           
@@ -62,7 +62,7 @@
         
                        
                         {% for acesso in acessos_medicos  %}
-                        <tr class="linha-tabela">
+                        <tr class="linha-tabela"> 
                             <td>{{acesso.identificacao}}</td>
                             <td>{{acesso.status}}</td>
                             <td><a href="{{acesso.url}}">{{acesso.url}}</a></td>

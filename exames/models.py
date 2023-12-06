@@ -87,4 +87,7 @@ class AcessoMedico(models.Model):
 	@property
 	def url(self):
 		#TODO: reverse
-		return f"http://127.0.0.1:8000/exames/acesso_medico/{self.token}"		
+		#portal_link = "https://edvalson.pythonanywhere.com"
+		#return f"{portal_link}/exames/acesso_medico/{self.token}"	
+
+		return f"http://127.0.0.1:8000/exames/acesso_medico/{self.token}"	
